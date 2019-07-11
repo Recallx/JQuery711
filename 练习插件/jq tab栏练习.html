@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../jQuery UI/jquery-ui.css">
+</head>
+<body>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">相亲详情</a></li>
+            <li><a href="#tabs-2">男生介绍</a></li>
+            <li><a href="#tabs-3">女生介绍</a></li>
+        </ul>
+        <div id="tabs-1">
+            <p>
+                大家好，这里是你的月亮我的心，我是节目主持人，曾大贤。
+            </p>
+        </div>
+        <div id="tabs-2">
+            <p>
+                今天是悲伤的一天，因为狗蛋暗恋的女神翠花被他的兄弟蛋狗追到了，这件事情让狗蛋悲伤不已，因为翠花是狗蛋初中到现在暗恋的女生。
+            </p>
+        </div>
+        <div id="tabs-3">
+            <p>
+                在今天晚上，狗蛋居然想不开，想找我去解酒解愁，但是我没有答应他去喝酒，因为我知道他这喝醉了，肯定又要我买单了。
+            </p>
+            <p>
+                欲知详情：请关注 龙哥解说公众号。众多单身男神女神的微信群拉你进群。
+            </p>
+        </div>
+    </div>
+</body>
+<script src="../jquery-2.2.2.js"></script>
+<script src="../jQuery UI/jquery-ui.js"></script>
+<script>
+$(function(){
+  $("#tabs").tabs({
+    event: "mouseover" // 让切换发生在鼠标悬停的时候
+  });
+});
+</script>
+
+</html>

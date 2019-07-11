@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .box {
+        width: 200px;
+        height: 200px;
+        background-color:  green;
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+    </div>
+</body>
+<script src="../jquery-2.2.2.js"></script>
+<script src="../jquery.color.js"></script>
+<script>
+$('.box').on('click',function(){
+    $(this).animate({
+        width : 800,
+        backgroundColor: 'yellow',
+    },3000)
+    $(this).animate({
+        height : 800,
+        backgroundColor:'red'
+    },3000)
+    $(this).animate({
+        width : 1200,
+        backgroundColor : '#0094ff',
+    },3000)
+})
+</script>
+</html>
