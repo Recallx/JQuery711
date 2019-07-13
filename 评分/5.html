@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>五角星评分案例</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .comment {
+      font-size: 40px;
+      color: red;
+    }
+
+    .comment li {
+      float: left;
+      cursor: pointer;
+    }
+
+    ul {
+      list-style: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <ul class="comment">
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+  </ul>
+
+</body>
+<script src="../jquery-2.2.2.js"></script>
+<script>
+  /*
+    效果：
+      1.鼠标移入，鼠标在哪个星星上面，当前的星星和之前的星星都是实心
+      2.鼠标移出，分数回归原来的分数 - 之前有一个分数，鼠标移出，之前的分数和左边都是实心的
+      3.鼠标点击，修改分数
+  */
+  /*
+    效果1的思路：
+      1. 获取元素
+      2. 注册鼠标移入事件
+      3. 遍历从第一个开始，到当前结束，都变成实心的，把当前之后的变成空心的
+  */
+    //入口函数
+    $(()=> {
+        let lis = $('.comment > li ')
+        //先注册鼠标移入事件
+        lis.on('mouseover',function(){
+            //先获取鼠标的索引
+            let index = $(this).index();
+            //循环
+            lis.each((i,e)=> {
+                //判断如果鼠标索引大于索引就是实心
+                if(i <= index){
+                    lis.eq(i).text('★')
+                }else {
+                    lis.eq(i).text('☆')
+                }
+            })
+
+        });
+        //效果2 鼠标移出
+        //当鼠标移出时恢复原样
+        let stavse = 0;
+        //注册鼠标移出事件
+        lis.on('mouseout',function(){
+            //判断如果变量大于索引值，那么就是实心
+            lis.each((i,e)=> {
+                if(i < stavse){
+                    lis.eq(i).text('★')
+                }else{
+                    lis.eq(i).text('☆')
+                }
+            });
+        });
+        //效果3 注册鼠标点击事件
+        lis.on('click',function(){
+            //鼠标点击就实心
+            stavse = $(this).index() + 1;
+        });
+    });
+</script>
+</html>
